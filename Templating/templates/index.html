@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>The Page Name:{{pageName}}</h1>
+    <ul>
+      {% for key in toDo %}
+      <a href="http://127.0.0.1:5000/day/{{key}}"
+        ><li>
+          <h1>Click To Know What we Do On: <b>{{key}}</b></h1>
+        </li></a
+      >
+      {% endfor %}
+    </ul>
+  </body>
+</html>
