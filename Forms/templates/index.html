@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Welcome User Sign Up ?</h1>
+  <p><a class="btn btn-warning" href="{{url_for('signup')}}">Sign Up</a></p>
+  <br />
+  <p>
+    <a class="btn btn-primary" href="{{url_for('better_sign_up')}}"
+      >Better Sign Up</a
+    >
+  </p>
+</div>
+{% endblock %}

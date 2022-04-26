@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h1>Check IF The Details entered are correct</h1>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"><b>email: {{session['email']}}</b></li>
+      <li class="list-group-item"><b>password: {{session['password']}}</b></li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
