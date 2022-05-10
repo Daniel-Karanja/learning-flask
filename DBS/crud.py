@@ -1,6 +1,5 @@
 from app import *
 
-
 #CREATE READ UPDATE DELETE
 ##CRUD
 ####CREATE USER

@@ -30,6 +30,14 @@ class Employee(db.Model):
     name=db.Column(db.Text,nullable=False)
     phone=db.Column(db.BIGINT,nullable=False,unique=True)
     age=db.Column(db.Integer)
+    
+       #One Employee Can HAve Multiple Cars
+    ## This relation is one to many.
+    cars=db.relationship("Car",backref="user",lazy="dynamic")   
+
+   ## One Employee can only have one Spause
+    spouse=db.relationship("Spause",backref="user",uselist=False)
+
 
     def __init__(self,obj):
       
@@ -37,13 +45,11 @@ class Employee(db.Model):
       self.phone=obj["phone"]
       self.age=obj["age"]
     
-    #One Employee Can HAve Multiple Cars
-    ## This relation is one to many.
-    cars=db.relationship("Car",backref="user",lazy="dynamic")   
-
-   ## One Employee can only have one Spause
-    spouse=db.relationship("Spause",backref="user",uselist=False)
-
+ 
+    def report_cars(self):
+        print(f"Here are the cars of {self.name}")
+        for car in self.cars:
+            print(f"{car.model} {car.name}")
 
 
 
@@ -66,6 +72,7 @@ class Car(db.Model):
        self.cc=obj["cc"]
        self.owner=obj["_id"]
 
+   
 
 class Spause(db.Model):
 
