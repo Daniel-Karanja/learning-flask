@@ -11,7 +11,7 @@ password="root"
 host="44.200.116.238"
 database="syntax"
 
-##postgres://garnjjmfrdudcx:042ad00f0836af0afd40ee473685d9e0b4c7c90c2b027ec747426b87ae73b0bd@ec2-52-3-200-138.compute-1.amazonaws.com:5432/dbvjvtrtuotqja
+##postgresql://garnjjmfrdudcx:042ad00f0836af0afd40ee473685d9e0b4c7c90c2b027ec747426b87ae73b0bd@ec2-52-3-200-138.compute-1.amazonaws.com:5432/dbvjvtrtuotqja
 
 uri=f"postgresql://{user}:{password}@{host}/{database}"
 
@@ -31,20 +31,25 @@ class Employee(db.Model):
     phone=db.Column(db.BIGINT,nullable=False,unique=True)
     age=db.Column(db.Integer)
     
-       #One Employee Can HAve Multiple Cars
+    ###One Employee Can HAve Multiple Cars
     ## This relation is one to many.
     cars=db.relationship("Car",backref="user",lazy="dynamic")   
 
    ## One Employee can only have one Spause
     spouse=db.relationship("Spause",backref="user",uselist=False)
-
+    
 
     def __init__(self,obj):
       
       self.name=obj["name"]
       self.phone=obj["phone"]
       self.age=obj["age"]
-    
+     
+    def __repr__(self):
+        if self.spouse:
+            return f"_id: {self._id} name:{self.name} spause==true spause: %{self.spouse.name}  %"
+        
+        return f"_id: {self._id} name:{self.name} not married:"
  
     def report_cars(self):
         print(f"Here are the cars of {self.name}")
