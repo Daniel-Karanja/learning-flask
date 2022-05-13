@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+}
+
+.flex-row-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.thick-text {
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}

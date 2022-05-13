@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block main_content %}
+<h1>Add User Page</h1>
+
+<div class="w100 flex-row-center w3-container">
+  <div class="w3-margin-top w3-card-2" style="width: 50%; padding: 20px">
+    <form method="POST">
+      {#This hidden tag is a CRSF Security Feature#} {{form.hidden_tag()}}
+      <p>
+        {{form.name.label(class="w3-large thick-text")}}
+        {{form.name(class="w3-input w3-border")}}
+      </p>
+      <p>
+        {{form.email.label(class="w3-large thick-text")}}
+        {{form.email(class="w3-input w3-border")}}
+      </p>
+      <p>
+        {{form.password.label(class="w3-large thick-text")}}
+        {{form.password(class="w3-input w3-border")}}
+      </p>
+      <p class="w3-center">
+        {{form.submit(class="w3-button w3-blue w3-round thick-text")}}
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

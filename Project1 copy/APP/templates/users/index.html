@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block main_content %}
+<div class="w100 flex-row-center" style="margin-top: 50px">
+  <table
+    class="w3-table-all w3-hoverable w3-card-4 w3-rounded-large w3-large"
+    style="width: 50%"
+  >
+    <tr>
+      {% for header in headers %}
+      <th>{{header}}</th>
+      {% endfor %}
+    </tr>
+    {% for user in data %}
+    <tr>
+      <td>{{user['name']}}</td>
+      <td>{{user['email']}}</td>
+      <td class="">
+        <a class="w3-text-blue pointer" style="margin-right: 15px;text-decoration: underline;"
+          >edit</a
+        >
+
+        <a class="w3-text-blue pointer" style="margin-right: 15px;text-decoration: underline;"
+          >show Cars</a
+        >
+
+        <a href="{{user['del']}}" class="w3-text-red pointer" style="margin-right: 15px;text-decoration: underline;">delete</span>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

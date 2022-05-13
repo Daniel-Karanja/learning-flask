@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css.css')}}" />
+    <title>dash board</title>
+  </head>
+  <body>
+    <div class="w3-xlarge flex-row-center w3-padding w3-light-grey">
+      <span class="w3-xlarge" style="margin-right: 15px">Hr App</span
+      ><span class="w3-xlarge">{{page_title}}</span>
+    </div>
+
+    <div class="w100">
+      <div class="w3-sidebar w3-bar-block w3-card" style="width: 15%">
+        <div class="w3-bar-item w3-margin-top w3-margin-bottom">
+          <h1 class="w3-center">HR APP</h1>
+        </div>
+
+        <a
+          href="{{url_for('user.index')}}"
+          class="w3-bar-item {{active[0]}} w3-button w3-xlarge w3-border-top w3-border-bottom"
+          >User's</a
+        >
+        <a
+          href="{{url_for('user.add')}}"
+          class="w3-bar-item {{active[1]}} w3-button w3-xlarge w3-border-top w3-border-bottom"
+          >Add User</a
+        >
+        <a
+          href="{{url_for('car.index')}}"
+          class="w3-bar-item {{active[2]}} w3-button w3-xlarge w3-border-top w3-border-bottom"
+          >Car's</a
+        >
+        <a
+          href="{{url_for('car.add')}}"
+          class="w3-bar-item {{active[3]}} w3-button w3-xlarge w3-border-top w3-border-bottom"
+          >Add Car</a
+        >
+      </div>
+      <div style="margin-left: 15%" class="w3-container">
+        {% block main_content %} {% endblock %}
+      </div>
+    </div>
+    <script src="{{url_for('static',filename='js.js')}}"></script>
+  </body>
+</html>
